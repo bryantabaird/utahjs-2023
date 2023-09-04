@@ -18,18 +18,18 @@ const RelativeTime = () => {
   const locale = i18n.language;
 
   const getNarrowRelativeTime = (days: number) => {
-    // return `${Math.floor(days / 7)}w ${days % 7}d ago`;
-    return new Intl.RelativeTimeFormat(locale, narrowOptions).format(days, 'day');
+    return `${Math.floor(days / 7)}w ${days % 7}d ago`;
+    // return new Intl.RelativeTimeFormat(locale, narrowOptions).format(days, 'day');
   };
 
   const getShortRelativeTime = (days: number) => {
-    // return `${Math.floor(days / 7)} weeks and ${days % 7} days ago`;
-    return new Intl.RelativeTimeFormat(locale, shortOptions).format(days, 'day');
+    return `${Math.floor(days / 7)} weeks and ${days % 7} days ago`;
+    // return new Intl.RelativeTimeFormat(locale, shortOptions).format(days, 'day');
   };
 
   const getLongRelativeTime = (days: number) => {
-    // return `${Math.floor(days / 7)} weeks and ${days % 7} days ago`;
-    return new Intl.RelativeTimeFormat(locale, longOptions).format(days, 'quarters');
+    return `${Math.floor(days / 7)} weeks and ${days % 7} days ago`;
+    // return new Intl.RelativeTimeFormat(locale, longOptions).format(days, 'quarters');
   };
 
   return (

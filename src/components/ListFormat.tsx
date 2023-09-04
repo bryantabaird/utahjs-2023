@@ -25,17 +25,15 @@ const ListItems = () => {
       words[words.length - 1] = `and ${words[words.length - 1]}`;
       formattedPhrase = words.join(', ');
     }
-    // return formattedPhrase;
-    return new Intl.ListFormat(lang, { type: 'conjunction' }).format(items);
+    return formattedPhrase;
+    // return new Intl.ListFormat(lang, { type: 'conjunction' }).format(items);
   };
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">{t('list-format')}</h2>
+      <h2 className="font-semibold text-xl">List Format</h2>
       <ul>
         <li className="text-l mb-2">{makeList(items1)}</li>
-        <li className="text-l mb-2">{makeList(items2)}</li>
-        <li className="text-l mb-2">{makeList(items3)}</li>
         <li className="text-l mb-2">{makeList(items2)}</li>
         <li className="text-l mb-2">{makeList(items3)}</li>
       </ul>

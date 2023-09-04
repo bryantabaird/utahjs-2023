@@ -27,14 +27,14 @@ const SocialMedia = () => {
       .find(function (item) {
         return num >= item.value;
       });
-    // return item ? (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol : '0';
+    return item ? (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol : '0';
 
-    return new Intl.NumberFormat(locale, options).format(num);
+    // return new Intl.NumberFormat(locale, options).format(num);
   }
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">{t('likes')}</h2>
+      <h2 className="font-semibold text-xl">Likes</h2>
       <ul>
         <li className="text-l mb-2">{nFormatter(likes, 2)}</li>
       </ul>
