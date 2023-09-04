@@ -1,35 +1,52 @@
-import React from 'react';
-
-const currentlySupportedLanguages = ['English', 'Spanish'];
+import React, { useEffect, useState } from 'react';
+import { I18nextProvider, useTranslation } from 'react-i18next';
+import i18n from 'i18next';
+import DateTime from './components/DateTime';
+import Pricing from './components/Pricing';
+import SocialMedia from './components/SocialMedia';
+import RelativeTime from './components/RelativeTime';
+import ListFormat from './components/ListFormat';
+import initializeI18n from './i18n/initializeI18n';
 
 function App() {
+  const [instances, setInstances] = useState<(typeof i18n)[]>([]);
+
+  useEffect(() => {
+    async function initialize() {
+      const instances = await Promise.all([
+        await initializeI18n('en'),
+        await initializeI18n('es'),
+        await initializeI18n('fr'),
+      ]);
+      setInstances(instances);
+    }
+
+    initialize();
+  }, []);
+
   return (
-    <div>
-      {currentlySupportedLanguages.map((lang) => {
-        return (
-          <div key={lang} className="bg-slate-800 h-screen flex w-100 gap-4 p-4">
-            <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-slate-100">
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                <p className="text-gray-700 text-base">{lang}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  #photography
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  #travel
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                  #winter
-                </span>
-              </div>
+    <main className="flex bg-slate-800 items-center">
+      {instances.map((instance) => (
+        <I18nextProvider key={instance.language} i18n={instance}>
+          <section className="h-screen flex flex-col w-100 gap-4 p-4 rounded-2xl bg-slate-100 m-4">
+            <Title />
+            <div className="flex flex-col gap-4">
+              <DateTime />
+              <Pricing />
+              <SocialMedia />
+              <RelativeTime />
+              <ListFormat />
             </div>
-          </div>
-        );
-      })}
-    </div>
+          </section>
+        </I18nextProvider>
+      ))}
+    </main>
   );
 }
+
+const Title = () => {
+  const { t } = useTranslation();
+  return <h2 className="text-3xl font-bold mb-6">{t('welcome')}</h2>;
+};
 
 export default App;
