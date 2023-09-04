@@ -32,10 +32,10 @@ function App() {
             <Title />
             <div className="flex flex-col gap-4">
               <DateTime />
-              <Pricing />
+              {/* <Pricing />
               <SocialMedia />
               <RelativeTime />
-              <ListFormat />
+              <ListFormat /> */}
             </div>
           </section>
         </I18nextProvider>

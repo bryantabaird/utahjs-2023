@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 
 const longDateTimeOptions: Intl.DateTimeFormatOptions = {
   year: 'numeric',
-  month: 'long',
+  month: 'short',
   day: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
   weekday: 'long',
   hour12: true,
-  timeZoneName: 'longGeneric',
 };
 
 const shortDateTimeOptions: Intl.DateTimeFormatOptions = {};
