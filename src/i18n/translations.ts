@@ -7,6 +7,7 @@ export const resources = {
       price: 'Price',
       likes: 'Likes',
       'relative-time': 'Relative Time',
+      'list-format': 'List Format',
     },
   },
   fr: {
@@ -16,7 +17,8 @@ export const resources = {
       date: 'Dāt',
       price: 'Prix',
       likes: 'Likes',
-      'relative-time': 'Relative Time',
+      'relative-time': 'Temps Relatif',
+      'list-format': 'Format de Liste',
     },
   },
   es: {
@@ -26,7 +28,8 @@ export const resources = {
       date: 'Fecha',
       price: 'Precio',
       likes: 'Likes',
-      'relative-time': 'Relative Time',
+      'relative-time': 'Tiempo Relativo',
+      'list-format': 'Formato de Lista',
     },
   },
 };

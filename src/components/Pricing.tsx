@@ -32,7 +32,7 @@ const Pricing = () => {
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">Pricing</h2>
+      <h2 className="font-semibold text-xl">{t('price')}</h2>
       <ul>
         <li className="text-l mb-2">{getPrice(199.99, currency)}</li>
         <li className="text-l mb-2">{getAccountingPrice(-2499.99, currency)}</li>

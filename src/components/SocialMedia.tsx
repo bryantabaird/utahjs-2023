@@ -34,7 +34,7 @@ const SocialMedia = () => {
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">Likes</h2>
+      <h2 className="font-semibold text-xl">{t('likes')}</h2>
       <ul>
         <li className="text-l mb-2">{nFormatter(likes, 2)}</li>
       </ul>

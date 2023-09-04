@@ -1,17 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// const longDateTimeOptions: Intl.DateTimeFormatOptions = {
-//   year: 'numeric',
-//   month: 'long',
-//   day: 'numeric',
-//   hour: 'numeric',
-//   minute: 'numeric',
-//   weekday: 'long',
-//   hour12: true,
-// };
+const longDateTimeOptions: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  weekday: 'long',
+  hour12: true,
+  timeZoneName: 'longGeneric',
+};
 
-// const shortDateTimeOptions: Intl.DateTimeFormatOptions = {};
+const shortDateTimeOptions: Intl.DateTimeFormatOptions = {};
 
 enum Weekday {
   Sunday,
@@ -60,23 +61,23 @@ const DateTime = () => {
     const month = date.getMonth();
     const year = date.getFullYear();
     const amPm = formatAMPM(date);
-    return `${Weekday[day]}, ${Month[month]} ${day}, ${year} at ${amPm}`;
+    // return `${Weekday[day]}, ${Month[month]} ${day}, ${year} at ${amPm}`;
 
-    // return new Intl.DateTimeFormat(i18n.language, longDateTimeOptions).format(date);
+    return new Intl.DateTimeFormat(i18n.language, longDateTimeOptions).format(date);
   };
 
   const getShortenedDate = (date: Date) => {
     const day = date.getDay();
     const month = date.getMonth();
     const year = date.getFullYear();
-    return `${Month[month]} ${day}, ${year}`;
+    // return `${Month[month]} ${day}, ${year}`;
 
-    // return new Intl.DateTimeFormat(i18n.language, shortDateTimeOptions).format(date);
+    return new Intl.DateTimeFormat(i18n.language, shortDateTimeOptions).format(date);
   };
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">Date</h2>
+      <h2 className="font-semibold text-xl">{t('date')}</h2>
       <ul>
         <li className="text-l mb-2">{getLongDate(now)}</li>
         <li className="text-l mb-2">{getShortenedDate(now)}</li>

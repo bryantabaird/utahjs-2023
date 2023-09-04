@@ -31,7 +31,7 @@ const ListItems = () => {
 
   return (
     <article className="last:border last:border-blue-500 last:rounded last:p-4">
-      <h2 className="font-semibold text-xl">List Items</h2>
+      <h2 className="font-semibold text-xl">{t('list-format')}</h2>
       <ul>
         <li className="text-l mb-2">{makeList(items1)}</li>
         <li className="text-l mb-2">{makeList(items2)}</li>
