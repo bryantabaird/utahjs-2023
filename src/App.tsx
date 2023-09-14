@@ -31,11 +31,11 @@ function App() {
           <section className="h-screen flex flex-col w-100 gap-4 p-4 rounded-2xl bg-slate-100 m-4">
             <Title />
             <div className="flex flex-col gap-4">
-              <DateTime />
-              <Pricing />
-              <SocialMedia />
-              <RelativeTime />
-              <ListFormat />
+              {/* <DateTime /> */}
+              {/* <Pricing /> */}
+              {/* <SocialMedia /> */}
+              {/* <RelativeTime /> */}
+              {/* <ListFormat /> */}
             </div>
           </section>
         </I18nextProvider>
